@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { setIsLoggedIn } = useAuth();
+  axios.defaults.withCredentials = true;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +30,7 @@ const Login = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:8090/api/users/login",
+        "https://nasa-api-af-assignment-2.vercel.app/login",
         {
           email,
           password,
