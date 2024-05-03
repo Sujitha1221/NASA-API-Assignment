@@ -15,14 +15,7 @@ app.use(
     credentials: true
   })
 );
-// Add this middleware to set the Access-Control-Allow-Origin header
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://nasa-api-af-assignment-2-frontend.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true"); // make sure to include this line
-  next();
-});
+
 app.use("/api/users", require("./routes/userRoutes"));
 
 app.use("/", (req, res) => {
