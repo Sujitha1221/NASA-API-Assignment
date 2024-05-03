@@ -16,8 +16,8 @@ app.use(
 );
 app.use("/api/users", require("./routes/userRoutes"));
 
-app.get("/", (req, res) => {
-  res.json("Hello");
+app.use("/", (req, res) => {
+  res.send("Hello");
 })
 
 app.listen(port, () => {
