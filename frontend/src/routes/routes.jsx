@@ -13,7 +13,7 @@ import EarthImage from "../pages/NasaApi/EarthImage";
 import Epic from "../pages/NasaApi/EpicImage";
 import { useAuth } from "../context/AuthContext";
 
-const PrivateRoute = ({ Component }) => {
+const PrivateRoute = ({ element: Component }) => {
   const { isLoggedIn } = useAuth();
 
   return isLoggedIn ? <Component /> : <Navigate to="/login" />;
