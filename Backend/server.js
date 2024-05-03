@@ -12,6 +12,7 @@ app.use(
     origin: ["https://nasa-api-af-assignment-2-frontend.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
   })
 );
 app.use("/api/users", require("./routes/userRoutes"));
