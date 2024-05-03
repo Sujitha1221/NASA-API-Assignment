@@ -18,10 +18,6 @@ app.use(
 
 app.use("/api/users", require("./routes/userRoutes"));
 
-app.use("/", (req, res) => {
-  res.send("Hello");
-})
-
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
   databaseConnection();
