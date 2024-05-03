@@ -41,7 +41,7 @@ const Register = () => {
     }
     try {
       const response = await axios.post(
-        "https://nasa-api-af-assignment-2.vercel.app/register",
+        "https://nasa-api-af-assignment-2.vercel.app/api/users/register",
         {
           firstName,
           lastName,

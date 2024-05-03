@@ -30,7 +30,7 @@ const Login = () => {
     }
     try {
       const response = await axios.post(
-        "https://nasa-api-af-assignment-2.vercel.app/login",
+        "https://nasa-api-af-assignment-2.vercel.app/api/users/login",
         {
           email,
           password,
