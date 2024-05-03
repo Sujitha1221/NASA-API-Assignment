@@ -15,6 +15,11 @@
         "src": "/(.*)",
         "dest": "server.js"
       }
-    ]
+    ],
+    "env": {
+      "MONGODB_URL": "mongodb+srv://Sujitha:srrkjPKNF4QElXV9@projectcluster.sh5jf1i.mongodb.net/NasaApi?retryWrites=true&w=majority&appName=ProjectCluster",
+      "PORT": "8090",
+      "ACCESS_TOKEN_SECRET": "abc123"
+    }
   }
   
