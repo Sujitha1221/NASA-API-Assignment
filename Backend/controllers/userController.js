@@ -54,7 +54,7 @@ const registerUser = async (req, res) => {
       res.status(400).json({ success: false, error: "User data not valid" });
     }
   } catch (error) {
-    console.log("Error while registering user", error);
+    logger.error("Error while registering user", error);
     res.status(500).json({
       success: false,
       error,
