@@ -12,14 +12,12 @@ const registerUser = async (req, res) => {
     if (!firstName || !lastName || !email || !password) {
       return res.status(400).json({
         success: false,
-        error,
         message: "Missig required fields",
       });
     }
     if (!isValidEmail(email)) {
       return res.status(400).json({
         success: false,
-        error,
         message: "Invalid email format",
       });
     }
@@ -27,7 +25,7 @@ const registerUser = async (req, res) => {
     if (!validatePassword(password)) {
       return res.status(400).json({
         success: false,
-        error:
+        message:
           "Password should be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number",
       });
     }
@@ -71,14 +69,12 @@ const loginUser = async (req, res) => {
     if (!email || !password) {
       return res.status(400).json({
         success: false,
-        error,
         message: "Missig required fields",
       });
     }
     if (!isValidEmail(email)) {
       return res.status(400).json({
         success: false,
-        error,
         message: "Invalid email format",
       });
     }
@@ -125,7 +121,31 @@ const loginUser = async (req, res) => {
   }
 };
 
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    if (users) {
+      res
+        .status(200)
+        .json({ success: true, message: "Users retrieved", data: users });
+    } else {
+      logger.error("Error in retrieving users");
+      res
+        .status(400)
+        .json({ success: false, error: "Error in retrieving users" });
+    }
+  } catch (error) {
+    logger.error("Error while getting all users:", error);
+    res.status(500).json({
+      success: false,
+      error,
+      message: "Error while getting all users",
+    });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
+  getAllUsers,
 };
