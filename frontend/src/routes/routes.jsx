@@ -26,17 +26,13 @@ const FrontendRoutes = () => {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/apod" element={<APODViewer />} />
-        <Route path="/earth" element={<EarthImage />} />
-        <Route path="/epic" element={<Epic />} />
-        {/* <Route path="/gallery" element={<PrivateRoute Component={Gallery} />} />
+        <Route path="/gallery" element={<PrivateRoute Component={Gallery} />} />
         <Route path="/apod" element={<PrivateRoute Component={APODViewer} />} />
         <Route
           path="/earth"
           element={<PrivateRoute Component={EarthImage} />}
         />
-        <Route path="/epic" element={<PrivateRoute Component={Epic} />} /> */}
+        <Route path="/epic" element={<PrivateRoute Component={Epic} />} />
       </Routes>
     </Router>
   );

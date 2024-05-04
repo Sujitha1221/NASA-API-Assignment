@@ -46,7 +46,7 @@ const Login = () => {
         }));
         
         //dispatch(loginSuccess());
-        navigate("/gallery");
+        navigate("/");
       } else {
         alert("Failed to login user");
       }
