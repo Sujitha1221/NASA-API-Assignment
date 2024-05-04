@@ -9,6 +9,7 @@ const Header = () => {
   const handleLogout = () => {
     try {
       toast.success("You've loggout out successfully")
+      localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("auth");
       logout();
       navigate("/");
