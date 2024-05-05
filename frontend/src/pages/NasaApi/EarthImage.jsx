@@ -75,7 +75,7 @@ const EarthImage = () => {
 
   return (
     <div
-      className="flex flex-col items-center pt-10  min-h-screen"
+      className="flex flex-col items-center py-10 min-h-screen"
       style={{
         backgroundImage: 'url("/background.jpg")',
         backgroundSize: "cover",
@@ -91,7 +91,7 @@ const EarthImage = () => {
             Earth Wonders
           </h1>
           <br />
-          <p className="lg:text-lg md:text-base text-gray-700 mb-8 text-center">
+          <p className="lg:text-lg md:text-base px-4 text-gray-700 mb-8 text-center">
             Discover captivating satellite images of Earth by entering
             coordinates and selecting a date. This page provides a gateway to
             breathtaking views from space. Input latitude, longitude, and date
