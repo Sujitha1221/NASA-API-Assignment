@@ -82,10 +82,16 @@ const APODViewer = () => {
     >
       <h1 className="text-center text-3xl font-semibold mb-4">APOD Viewer</h1>
       <p className="text-lg text-gray-700 mb-8 text-center">
-        Welcome to our APOD Viewer! Explore captivating snapshots of the cosmos captured by NASA's Astronomy Picture of the Day (APOD) service. Each day, we present a stunning visual journey through the universe, featuring celestial wonders ranging from distant galaxies to mesmerizing phenomena.
+        Welcome to our APOD Viewer! Explore captivating snapshots of the cosmos
+        captured by NASA's Astronomy Picture of the Day (APOD) service. Each
+        day, we present a stunning visual journey through the universe,
+        featuring celestial wonders ranging from distant galaxies to mesmerizing
+        phenomena.
       </p>
       <div className="mb-6 flex flex-col md:flex-row items-center justify-center">
-        <p className="text-lg font-bold mr-4 mb-2 md:mb-0">Search for APOD images by start date and end date:</p>
+        <p className="text-lg font-bold mr-4 mb-2 md:mb-0">
+          Search for APOD images by start date and end date:
+        </p>
         <input
           id="start-date"
           type="date"
@@ -117,11 +123,21 @@ const APODViewer = () => {
           {apodData.map((apod) => (
             <div key={apod.date} className="mb-8">
               <div className={isMobile ? "mb-4" : "flex flex-row mb-4"}>
-                <img
-                  src={apod.url}
-                  alt={apod.title}
-                  className="max-w-full md:max-w-md mb-4 md:mr-4"
-                />
+                {apod.media_type === "image" ? (
+                  <img
+                    src={apod.url}
+                    alt={apod.title}
+                    className="max-w-full md:max-w-md mb-4 md:mr-4"
+                  />
+                ) : (
+                  <iframe
+                    title={apod.title}
+                    src={apod.url}
+                    frameBorder="0"
+                    allowFullScreen
+                    className="max-w-full md:max-w-md mb-4 md:mr-4"
+                  ></iframe>
+                )}
                 {!isMobile && (
                   <div>
                     <p className="text-lg font-semibold mb-2">{apod.title}</p>

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { validateEmail, validatePassword } from "../../utils/commonFunctions";
 import axios from "axios";
-import { useAuth } from '../../context/AuthContext';
-import { toast } from 'react-toastify';
+import { useAuth } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -39,19 +39,24 @@ const Login = () => {
       if (response.data.success) {
         toast.success("User logged in successfully");
         setIsLoggedIn(true);
-        localStorage.setItem('isLoggedIn',true);
-        localStorage.setItem('auth', JSON.stringify({
-          token: response.data.token,
-          user: response.data.user
-        }));
-        
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem(
+          "auth",
+          JSON.stringify({
+            token: response.data.token,
+            user: response.data.user,
+          })
+        );
+
         //dispatch(loginSuccess());
         navigate("/");
       } else {
         alert("Failed to login user");
       }
     } catch (error) {
-      toast.error("An error occurred while loggging in. Please try again later.");
+      toast.error(
+        "An error occurred while loggging in. Please try again later."
+      );
     }
   };
 
@@ -67,9 +72,7 @@ const Login = () => {
         <source src="/SolarSystem.mp4" type="video/mp4" />
       </video>
       <div className="absolute w-full h-full flex items-center justify-center z-10">
-        <div
-          className={`xl:max-w-2xl bg-white p-5 sm:p-10 rounded-md`}
-        >
+        <div className={`xl:max-w-2xl bg-white p-5 sm:p-10 rounded-md`}>
           <h1
             className={`text-center text-xl sm:text-3xl font-semibold text-black
             }`}
